@@ -4,10 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/use_case_config.dart';
 import '../../../domain/models/giphy/giphy_images.dart';
 import '../../../domain/models/page.dart';
+import '../../common/atoms/icon_button.dart';
+import '../../common/molescules/card.dart';
 import '../../common/organisms/header.dart';
 import '../../common/organisms/nav_bar.dart';
 import '../../common/tokens/colors.dart';
-import '../../common/tokens/sizes.dart';
 
 class GiphyPage extends ConsumerWidget {
   static const String routeName = '/giphy';
@@ -50,13 +51,47 @@ class GiphyPage extends ConsumerWidget {
             snapshot.connectionState == ConnectionState.done;
 
         if (hasData) {
-          return const Text('Todo salió bien');
+          return _buildImages(context, results: snapshot.data!);
         } else if (snapshot.hasError) {
           return _buildApiError(context);
         } else {
-          return _buildLoading();
+          return _buildApiLoading();
         }
       },
+    );
+  }
+
+  Widget _buildImages(
+    BuildContext context, {
+    required List<GiphyImagesModel> results,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        const SizedBox(height: 25),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            children: <Widget>[
+              Text(
+                'Happy Hours',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5!
+                    .copyWith(fontWeight: FontWeight.w700),
+              ),
+              const Spacer(),
+              IconButtonWidget(icon: Icons.delete_outline, onPressed: () {}),
+            ],
+          ),
+        ),
+        Column(
+          children: List<CardWidget>.generate(
+            results.length,
+            (int index) => CardWidget(image: results[index].images!.original!),
+          ),
+        ),
+      ],
     );
   }
 
@@ -72,7 +107,7 @@ class GiphyPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildLoading() {
+  Widget _buildApiLoading() {
     return Align(
       child: Container(
         margin: const EdgeInsets.all(40),
@@ -87,18 +122,14 @@ class GiphyPage extends ConsumerWidget {
     return Expanded(
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(
-          vertical: 35,
-          horizontal: SizesTokens.spacing,
-        ),
         decoration: const BoxDecoration(
           color: ColorsTokens.white,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40),
-            topRight: Radius.circular(40),
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
           ),
         ),
-        child: _buildBuilderPopular(context),
+        child: SingleChildScrollView(child: _buildBuilderPopular(context)),
       ),
     );
   }

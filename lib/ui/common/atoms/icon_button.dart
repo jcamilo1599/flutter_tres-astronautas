@@ -5,10 +5,12 @@ import '../tokens/colors.dart';
 class IconButtonWidget extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
+  final Color iconColor;
 
   const IconButtonWidget({
     required this.icon,
     required this.onPressed,
+    this.iconColor = ColorsTokens.black,
     Key? key,
   }) : super(key: key);
 
@@ -25,7 +27,7 @@ class IconButtonWidget extends StatelessWidget {
         surfaceTintColor: ColorsTokens.white,
         minimumSize: Size.zero,
       ),
-      child: Icon(icon, color: ColorsTokens.black),
+      child: Icon(icon, color: iconColor),
     );
   }
 }
