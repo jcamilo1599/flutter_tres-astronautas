@@ -1,7 +1,7 @@
-import 'package:tres_astronautas/domain/use_cases/start/start.dart';
-
 import '../domain/use_cases/giphy/giphy.dart';
 import '../domain/use_cases/islands/islands.dart';
+import '../domain/use_cases/start/start.dart';
+import '../infrastructure/driven_adapter/giphy.dart';
 
 class UseCaseConfig {
   // Inicio
@@ -12,7 +12,7 @@ class UseCaseConfig {
 
   // Giphy
   late GiphyUseCase giphyUseCase;
-  //late GiphyApi _giphyApi;
+  late GiphyApi _giphyApi;
 
   UseCaseConfig() {
     // Inicio
@@ -22,7 +22,7 @@ class UseCaseConfig {
     islandsUseCase = IslandsUseCase();
 
     // Giphy
-    //_giphyApi = GiphyApi();
-    giphyUseCase = GiphyUseCase(/*_giphyApi*/);
+    _giphyApi = GiphyApi();
+    giphyUseCase = GiphyUseCase(_giphyApi);
   }
 }
