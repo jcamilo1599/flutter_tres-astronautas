@@ -1,62 +1,52 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'giphy_image_original.dart';
+import 'giphy_image_detail.dart';
 
 part 'giphy_images.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class GiphyImagesModel {
   GiphyImagesModel({
-    this.original,
-    this.hd,
-    this.fixedWidthStill,
-    this.fixedHeightDownsampled,
-    this.previewGif,
-    this.preview,
-    this.fixedHeightSmall,
-    this.downsized,
-    this.fixedWidthDownsampled,
-    this.fixedWidth,
-    this.downsizedStill,
-    this.downsizedMedium,
-    this.originalMp4,
-    this.downsizedLarge,
-    this.previewWebp,
-    this.originalStill,
-    this.fixedHeightSmallStill,
-    this.fixedWidthSmall,
-    this.looping,
-    this.downsizedSmall,
-    this.fixedWidthSmallStill,
-    this.fixedHeightStill,
-    this.fixedHeight,
-    this.the480WStill,
+    this.type,
+    this.id,
+    this.url,
+    this.slug,
+    this.bitlyGifUrl,
+    this.bitlyUrl,
+    this.embedUrl,
+    this.username,
+    this.source,
+    this.title,
+    this.rating,
+    this.contentUrl,
+    this.sourceTld,
+    this.sourcePostUrl,
+    this.isSticker,
+    this.importDatetime,
+    this.trendingDatetime,
+    this.images,
+    this.user,
   });
 
-  final GiphyImageOriginalModel? original;
-  final dynamic hd;
-  final dynamic fixedWidthStill;
-  final dynamic fixedHeightDownsampled;
-  final dynamic previewGif;
-  final dynamic preview;
-  final dynamic fixedHeightSmall;
-  final dynamic downsized;
-  final dynamic fixedWidthDownsampled;
-  final dynamic fixedWidth;
-  final dynamic downsizedStill;
-  final dynamic downsizedMedium;
-  final dynamic originalMp4;
-  final dynamic downsizedLarge;
-  final dynamic previewWebp;
-  final dynamic originalStill;
-  final dynamic fixedHeightSmallStill;
-  final dynamic fixedWidthSmall;
-  final dynamic looping;
-  final dynamic downsizedSmall;
-  final dynamic fixedWidthSmallStill;
-  final dynamic fixedHeightStill;
-  final dynamic fixedHeight;
-  final dynamic the480WStill;
+  final String? type;
+  final String? id;
+  final String? url;
+  final String? slug;
+  final String? bitlyGifUrl;
+  final String? bitlyUrl;
+  final String? embedUrl;
+  final String? username;
+  final String? source;
+  final String? title;
+  final String? rating;
+  final String? contentUrl;
+  final String? sourceTld;
+  final String? sourcePostUrl;
+  final int? isSticker;
+  final DateTime? importDatetime;
+  final String? trendingDatetime;
+  final GiphyImageDetailModel? images;
+  final dynamic user;
 
   factory GiphyImagesModel.fromJson(Map<String, dynamic> json) =>
       _$GiphyImagesModelFromJson(json);

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:tres_astronautas/ui/pages/giphy/giphy.dart';
-import 'package:tres_astronautas/ui/pages/islands/islands.dart';
 
 import '../../../config/use_case_config.dart';
+import '../giphy/giphy.dart';
+import '../islands/islands.dart';
 
 class StartPage extends StatelessWidget {
   static const String routeName = '/';
 
   StartPage({Key? key}) : super(key: key);
 
-  final UseCaseConfig _useCase = UseCaseConfig();
+  final UseCaseConfig _config = UseCaseConfig();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           Center(
             child: ElevatedButton(
-              onPressed: () => _useCase.startUseCase.navigateTo(
+              onPressed: () => _config.startUseCase.navigateTo(
                 context,
                 IslandsPage.routeName,
               ),
@@ -28,7 +28,7 @@ class StartPage extends StatelessWidget {
           ),
           Center(
             child: ElevatedButton(
-              onPressed: () => _useCase.startUseCase.navigateTo(
+              onPressed: () => _config.startUseCase.navigateTo(
                 context,
                 GiphyPage.routeName,
               ),

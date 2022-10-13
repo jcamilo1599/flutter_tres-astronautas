@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'giphy_data_api_resp.dart';
+import 'giphy_images.dart';
 import 'giphy_meta_api_resp.dart';
 
 part 'giphy_api_resp.g.dart';
@@ -13,7 +13,7 @@ class GiphyApiRespModel {
     this.pagination,
   });
 
-  final List<GiphyDataApiRespModel>? data;
+  final List<GiphyImagesModel>? data;
   final GiphyMetaApiRespModel? meta;
   final dynamic pagination;
 

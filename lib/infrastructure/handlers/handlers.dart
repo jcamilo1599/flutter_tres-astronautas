@@ -9,7 +9,7 @@ class Handlers {
   static Map<String, WidgetBuilder> getRoutes(BuildContext context) {
     return <String, WidgetBuilder>{
       StartPage.routeName: (BuildContext context) => StartPage(),
-      IslandsPage.routeName: (BuildContext context) => IslandsPage(),
+      IslandsPage.routeName: (BuildContext context) => const IslandsPage(),
       GiphyPage.routeName: (BuildContext context) => GiphyPage(),
     };
   }

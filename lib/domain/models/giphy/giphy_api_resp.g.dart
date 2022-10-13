@@ -9,8 +9,7 @@ part of 'giphy_api_resp.dart';
 GiphyApiRespModel _$GiphyApiRespModelFromJson(Map<String, dynamic> json) =>
     GiphyApiRespModel(
       data: (json['data'] as List<dynamic>?)
-          ?.map(
-              (e) => GiphyDataApiRespModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => GiphyImagesModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       meta: json['meta'] == null
           ? null
