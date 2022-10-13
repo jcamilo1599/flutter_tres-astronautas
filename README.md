@@ -12,4 +12,4 @@ La aplicación fue desarrollada con una arquitectura limpia, en la capa de UI se
 atómico para dividir todos los componentes según su tamaño. Para los modelos se
 utilizo ```json_annotation``` y ```json_serializable``` para facilitar la creación de "mappers".
 
-Demostración: 
+Demostración: https://drive.google.com/file/d/1CkHrPiby8pHgyQASaD6vASpuy5Pn9D2a/view?usp=sharing
