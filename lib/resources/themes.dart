@@ -6,6 +6,7 @@ class Themes {
   static ThemeData light = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
+    scaffoldBackgroundColor: ColorsTokens.lightGrey,
     colorScheme: ThemeData.dark().colorScheme.copyWith(
           brightness: Brightness.light,
           primary: ColorsTokens.primary,
